@@ -40,10 +40,21 @@ const categorie = datas => {
             <div class="col-md-8">
                  <h4 class="py-2">${data.title}</h4>
                 <p>${data.details.slice(0, 200)}</p>
-                <div>
-                 <div>
-                  <img class="avatar" src="${data.author.img}" alt="Image">
+                <div class="d-flex justify-content-evenly">
+                 <div class="d-flex align-middle">
+                   <div class="mx-4">
+                    <img class="avatar" src="${data.author.img}" alt="Image">
+                    </div>
+                   <div class="lh-1">
+                    <p>${data.author.name}</p>
+                    <p>${data.author.published_date}</p>
+                   </div>
                  </div>
+                 <div class="d-flex">
+                  <img class="eyeicon mt-1 mx-2" src="image/eye.png" alt="">
+                   <p>${data.total_view}</p>
+                 </div>
+                 <div><img class="eyeico" src="image/5star.png" alt=""></div>
                 </div>
             </div>
         </div>
