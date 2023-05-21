@@ -10,7 +10,7 @@ const categories =  datas => {
         const navLi = document.createElement('li');
         navLi.innerHTML = `
         <li class="nav-item active">
-          <a onclick="newsId('${data.category_id}')" class="nav-link" href="#">${data.category_name}</a>
+          <a onclick="newsId('${data.category_id}')" class="nav-link active" href="#">${data.category_name}</a>
         </li>
         
         `
@@ -25,13 +25,14 @@ const newsId = (id) => {
     .then(data => categorie(data.data))
 
 };
-newsId(console.log(length))
+newsId('id');
 
 const categorie = datas => {
+    const itens = document.getElementById('items')
+    itens.innerText = `${datas.length}`;
     const newsBody = document.getElementById('news-body')
     newsBody.innerHTML = ''
-    datas.forEach(data => {
-        console.log(data)
+    datas.forEach(data => { 
         const div = document.createElement('div')
         div.innerHTML = `
         <div class="row p-4 my-5 bg-white rounded d-flex justify-content-around">
@@ -52,7 +53,7 @@ const categorie = datas => {
                    </div>
                  </div>
                  <div class="d-flex">
-                  <img class="eyeicon mt-1" src="image/eye.png" alt="">
+                  <img class="eyeicon mt-1 mx-2" src="image/eye.png" alt="">
                    <p>${data.total_view}</p>
                  </div>
                  <div><img class="eyeico" src="image/5star.png" alt=""></div>
