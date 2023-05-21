@@ -5,12 +5,12 @@ const newsCategories = () => {
 };
 
 const categories =  datas => {
-    const newsNavbar = document.getElementById('navbarNav')
+    const newsNavbar = document.getElementById('navbar')
     datas.forEach(data => {
         const navLi = document.createElement('li');
         navLi.innerHTML = `
         <li class="nav-item active">
-          <a onclick="newsId('${data.category_id}')" class="nav-link active" aria-current="page" href="#">${data.category_name}</a>
+          <a onclick="newsId('${data.category_id}')" class="nav-link" href="#">${data.category_name}</a>
         </li>
         
         `
@@ -25,6 +25,7 @@ const newsId = (id) => {
     .then(data => categorie(data.data))
 
 };
+newsId(console.log(length))
 
 const categorie = datas => {
     const newsBody = document.getElementById('news-body')
@@ -33,7 +34,7 @@ const categorie = datas => {
         console.log(data)
         const div = document.createElement('div')
         div.innerHTML = `
-        <div class="row p-4">
+        <div class="row p-4 my-5 bg-white rounded d-flex justify-content-around">
             <div class="col-md-4">
                 <img class="w-100" src="${data.image_url}" alt="Image">
             </div>
@@ -51,7 +52,7 @@ const categorie = datas => {
                    </div>
                  </div>
                  <div class="d-flex">
-                  <img class="eyeicon mt-1 mx-2" src="image/eye.png" alt="">
+                  <img class="eyeicon mt-1" src="image/eye.png" alt="">
                    <p>${data.total_view}</p>
                  </div>
                  <div><img class="eyeico" src="image/5star.png" alt=""></div>
