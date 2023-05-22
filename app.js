@@ -35,7 +35,7 @@ const categorie = datas => {
     datas.forEach(data => { 
         const div = document.createElement('div')
         div.innerHTML = `
-        <div class="row p-4 my-5 bg-white rounded d-flex justify-content-around">
+        <div onclick="model('${data._id}')" class="row p-4 my-5 bg-white rounded d-flex justify-content-around" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="col-md-4">
                 <img class="w-100" src="${data.image_url}" alt="Image">
             </div>
@@ -63,6 +63,19 @@ const categorie = datas => {
         
         `
         newsBody.appendChild(div);
+    })
+}
+
+const model = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/news/${id}`)
+    .then(res => res.json())
+    .then(data => modalOpen(data.data))
+}
+model('id')
+
+const modalOpen = datas => {
+    datas.forEach(data  => {
+        console.log(data)
     })
 
 }
